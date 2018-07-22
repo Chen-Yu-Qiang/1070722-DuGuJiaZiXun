@@ -17,11 +17,15 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     using System.Windows.Media.Imaging;
     using Microsoft.Kinect;
 
+
+
     /// <summary>
     /// Interaction logic for MainWindow
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
+        private StreamWriter sw = new StreamWriter(@"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\data.txt");
+        
         /// <summary>
         /// Radius of drawn hand circles
         /// </summary>
@@ -374,6 +378,8 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         /// <param name="jointPoints">translated positions of joints to draw</param>
         /// <param name="drawingContext">drawing context to draw to</param>
         /// <param name="drawingPen">specifies color to draw a specific body</param>
+
+        bool savetxt = false;
         private void DrawBody(IReadOnlyDictionary<JointType, Joint> joints, IDictionary<JointType, Point> jointPoints, DrawingContext drawingContext, Pen drawingPen)
         {
             // Draw the bones
@@ -400,6 +406,18 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
                 if (drawBrush != null)
                 {
+                    if (savetxt)
+                    {
+                        
+                        
+                        sw.Write(jointType);
+                        sw.Write(",");
+                        sw.Write(Convert.ToString(jointPoints[jointType].X));
+                        sw.Write(",");
+                        sw.WriteLine(Convert.ToString(jointPoints[jointType].Y));
+
+
+                    }
                     drawingContext.DrawEllipse(drawBrush, null, jointPoints[jointType], JointThickness, JointThickness);
                 }
             }
@@ -512,6 +530,27 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             // on failure, set the status text
             this.StatusText = this.kinectSensor.IsAvailable ? Properties.Resources.RunningStatusText
                                                             : Properties.Resources.SensorNotAvailableStatusText;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (!savetxt)
+            {
+                savetxt = true;
+            }
+            
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if (savetxt)
+            {
+                savetxt = false;
+                sw.Flush();
+                sw.Close();
+            }
+            
         }
     }
 }
