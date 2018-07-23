@@ -406,15 +406,32 @@ namespace Microsoft.Samples.Kinect.BodyBasics
 
                 if (drawBrush != null)
                 {
+                    if (jointType == JointType.Head)
+                    {
+                        LabX.Content = Convert.ToString(joints[jointType].Position.X);
+                        LabY.Content = Convert.ToString(joints[jointType].Position.Y);
+                        LabZ.Content = Convert.ToString(joints[jointType].Position.Z);
+                    }
+                    
                     if (savetxt)
                     {
-                        
-                        
+                        //設定DateTime初始值
+                        DateTime GetNowDateTimeDetail = new DateTime(0001, 01, 01, 01, 01, 01, 01);
+
+                        //獲取今天日期
+                        GetNowDateTimeDetail = DateTime.Now;
+
+                        //放入string並設定格式
+                        string strTime = GetNowDateTimeDetail.ToString("yyyy-MM-dd hh:mm:ss fff");
+                        sw.Write(strTime);
+                        sw.Write(",");
                         sw.Write(jointType);
                         sw.Write(",");
-                        sw.Write(Convert.ToString(jointPoints[jointType].X));
+                        sw.Write(Convert.ToString(joints[jointType].Position.X));
                         sw.Write(",");
-                        sw.WriteLine(Convert.ToString(jointPoints[jointType].Y));
+                        sw.Write(Convert.ToString(joints[jointType].Position.Y));
+                        sw.Write(",");
+                        sw.WriteLine(Convert.ToString(joints[jointType].Position.Z));
 
 
                     }
@@ -537,6 +554,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             if (!savetxt)
             {
                 savetxt = true;
+                Textbox1.Text = "紀錄中";
             }
             
 
@@ -546,9 +564,12 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         {
             if (savetxt)
             {
+                File.Move(@"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\data.txt", @"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\" + Textbox1.Text + ".txt");
+
                 savetxt = false;
                 sw.Flush();
                 sw.Close();
+                Textbox1.Text = "閒置中";
             }
             
         }
