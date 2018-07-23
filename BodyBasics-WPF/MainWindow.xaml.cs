@@ -422,7 +422,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                         GetNowDateTimeDetail = DateTime.Now;
 
                         //放入string並設定格式
-                        string strTime = GetNowDateTimeDetail.ToString("yyyy-MM-dd hh:mm:ss fff");
+                        string strTime = GetNowDateTimeDetail.ToString("mm,ss,fff");
                         sw.Write(strTime);
                         sw.Write(",");
                         sw.Write(jointType);
