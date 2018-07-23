@@ -34,5 +34,7 @@
         <Label x:Name="LabX" Content="Label" HorizontalAlignment="Left" Margin="-653,299,0,0" Grid.Row="1" VerticalAlignment="Top" Width="387" Height="55" FontSize="36"/>
         <Label x:Name="LabY" Content="Label" HorizontalAlignment="Left" Margin="-653,354,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.858,0.72" Width="387" Height="55" FontSize="36"/>
         <Label x:Name="LabZ" Content="Label" HorizontalAlignment="Left" Margin="-653,409,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.597,3.711" Width="387" Height="55" FontSize="36"/>
+        <Label Content="檔名" HorizontalAlignment="Left" Margin="-659,87,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+        <Label x:Name="Lab1" Content="狀態：閒置中" HorizontalAlignment="Left" Margin="-653,45,0,0" Grid.Row="1" VerticalAlignment="Top" Width="231"/>
     </Grid>
 </Window>

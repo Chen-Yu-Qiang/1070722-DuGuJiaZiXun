@@ -554,7 +554,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             if (!savetxt)
             {
                 savetxt = true;
-                Textbox1.Text = "紀錄中";
+                Lab1.Content = "狀態：紀錄中";
             }
             
 
@@ -564,12 +564,12 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         {
             if (savetxt)
             {
-                File.Move(@"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\data.txt", @"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\" + Textbox1.Text + ".txt");
-
                 savetxt = false;
                 sw.Flush();
                 sw.Close();
-                Textbox1.Text = "閒置中";
+                File.Move(@"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\data.txt", @"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\" + Textbox1.Text + ".txt");
+
+                Lab1.Content = "狀態：閒置中";
             }
             
         }
