@@ -7,7 +7,7 @@ def d(a,b):
     for i in range(len(a)):
         c+=math.pow(a[i] - b[i],2)
     return math.sqrt(c)
-def 
+
 csvname=input("請輸入檔名")
 #csvname = "陳宇強"
 f = open("D:\\kinect\\1070722-讀出骨架\\1070722-DuGuJiaZiXun\\BodyBasics-WPF\\資料區\\" + csvname + ".txt", "r")
