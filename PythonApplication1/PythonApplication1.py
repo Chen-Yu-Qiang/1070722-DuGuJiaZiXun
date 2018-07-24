@@ -7,8 +7,9 @@ def d(a,b):
     for i in range(len(a)):
         c+=math.pow(a[i] - b[i],2)
     return math.sqrt(c)
-#csvname=input("請輸入檔名")
-csvname = "陳宇強"
+
+csvname=input("請輸入檔名")
+#csvname = "陳宇強"
 f = open("D:\\kinect\\1070722-讀出骨架\\1070722-DuGuJiaZiXun\\BodyBasics-WPF\\資料區\\" + csvname + ".txt", "r")
 data = f.readlines()
 adata =[{"time":0,
@@ -56,10 +57,39 @@ for a in adata:
     #plt.scatter(a["time"],d(p1,p2),c="r")
 p1=[]
 p2=[]
-p3=[]
 for a in adata:
     p2+=[d(a["AnkleRight"],a["AnkleLeft"])]
     p1+=[a["time"]]
-
 plt.plot(p1,p2)
+max=[]
+min=[]
+pole=4#取四個極點
+for i in range(1,len(adata)-1):
+    if p2[i]>p2[i+1] and p2[i]>p2[i-1]:
+        print(p1[i],"雙腳著地")
+        max+=[[p1[i],p2[i]]]
+        pole=pole-1
+    if p2[i]<p2[i+1] and p2[i]<p2[i-1]:
+        print(p1[i],"單腳站立")
+        min+=[[p1[i],p2[i]]]
+        pole=pole-1
+    if pole==0:
+        break
+
+print("雙腳著地")
+pprint.pprint(max)
+print("單腳站立")
+pprint.pprint(min)
+for a in adata:
+    if a["time"]==max[0][0]:
+        pprint.pprint(a)
+    elif a["time"]==max[1][0]:
+        pprint.pprint(a)
+    elif a["time"]==min[0][0]:
+        pprint.pprint(a)
+    elif a["time"]==min[1][0]:
+        pprint.pprint(a)
 plt.show()
+
+
+ 
