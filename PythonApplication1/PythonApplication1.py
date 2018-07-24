@@ -7,7 +7,59 @@ def d(a,b):
     for i in range(len(a)):
         c+=math.pow(a[i] - b[i],2)
     return math.sqrt(c)
-
+def ang(j1,j2,j3):
+    a=[0,0,0]
+    b=[0,0,0]
+    for i in range(3):
+        a[i]=j1[i]-j2[i]
+        b[i]=j3[i]-j2[i]
+    c=a[0]*b[0]+a[1]*b[1]+a[2]*b[2]
+    l=math.sqrt((a[0]**2+a[1]**2+a[2]**2)*(b[0]**2+b[1]**2+b[2]**2))
+    return math.acos(c/l)*(180/math.pi)
+def datatoang(data):
+    """a=[ang(data["FootLeft"],data["AnkleLeft"],data["KneeLeft"]),#1
+       ang(data["FootRight"],data["AnkleRight"],data["KneeRight"]),
+       ang(data["FootLeft"],data["KneeLeft"],data["HipLeft"]),
+       ang(data["FootRight"],data["KneeRight"],data["HipRight"]),
+       ang(data["KneeLeft"],data["HipLeft"],data["SpineBase"]),#5
+       ang(data["KneeRight"],data["HipRight"],data["SpineBase"]),
+       ang(data["AnkleLeft"],data["SpineBase"],data["AnkleRight"]),
+       ang(data["KneeLeft"],data["SpineBase"],data["KneeRight"]),
+       ang(data["ElbowLeft"],data["SpineBase"],data["ElbowRight"]),
+       ang(data["FootLeft"],data["SpineBase"],data["WristLeft"]),#10
+       ang(data["FootRight"],data["SpineBase"],data["WristRight"]),
+       ang(data["SpineBase"],data["SpineShoulder"],data["Head"]),
+       ang(data["ElbowLeft"],data["SpineShoulder"],data["ElbowRight"]),
+       ang(data["WristLeft"],data["SpineShoulder"],data["WristRight"]),
+       ang(data["SpineBase"],data["ShoulderLeft"],data["ElbowLeft"]),#15
+       ang(data["SpineBase"],data["ShoulderRight"],data["ElbowRight"]),
+       ang(data["SpineShoulder"],data["ShoulderLeft"],data["ElbowLeft"]),
+       ang(data["SpineShoulder"],data["ShoulderRight"],data["ElbowRight"]),
+       ang(data["ShoulderLeft"],data["ElbowLeft"],data["WristLeft"]),
+       ang(data["ShoulderRight"],data["ElbowRight"],data["WristRight"]),#20
+       ang(data["ShoulderLeft"],data["Head"],data["ShoulderRight"])]"""
+    a=[ang(data["FootLeft"],data["AnkleLeft"],data["KneeLeft"]),#1
+       ang(data["FootRight"],data["AnkleRight"],data["KneeRight"]),
+       ang(data["AnkleLeft"],data["KneeLeft"],data["HipLeft"]),
+       ang(data["AnkleRight"],data["KneeRight"],data["HipRight"]),
+       ang(data["KneeLeft"],data["HipLeft"],data["SpineBase"]),#5
+       ang(data["KneeRight"],data["HipRight"],data["SpineBase"]),
+       ang(data["AnkleLeft"],data["SpineBase"],data["AnkleRight"]),
+       ang(data["KneeLeft"],data["SpineBase"],data["KneeRight"]),
+       ang(data["ElbowLeft"],data["SpineBase"],data["ElbowRight"]),
+       ang(data["FootLeft"],data["SpineBase"],data["WristLeft"]),#10
+       ang(data["FootRight"],data["SpineBase"],data["WristRight"]),
+       ang(data["SpineBase"],data["SpineShoulder"],data["Head"]),
+       ang(data["ElbowLeft"],data["SpineShoulder"],data["ElbowRight"]),
+       ang(data["WristLeft"],data["SpineShoulder"],data["WristRight"]),
+       ang(data["SpineBase"],data["ShoulderLeft"],data["ElbowLeft"]),#15
+       ang(data["SpineBase"],data["ShoulderRight"],data["ElbowRight"]),
+       ang(data["SpineShoulder"],data["ShoulderLeft"],data["ElbowLeft"]),
+       ang(data["SpineShoulder"],data["ShoulderRight"],data["ElbowRight"]),
+       ang(data["ShoulderLeft"],data["ElbowLeft"],data["WristLeft"]),
+       ang(data["ShoulderRight"],data["ElbowRight"],data["WristRight"]),#20
+       ang(data["ShoulderLeft"],data["Head"],data["ShoulderRight"])]
+    return a
 csvname=input("請輸入檔名")
 #csvname = "陳宇強"
 f = open("D:\\kinect\\1070722-讀出骨架\\1070722-DuGuJiaZiXun\\BodyBasics-WPF\\資料區\\" + csvname + ".txt", "r")
@@ -80,15 +132,30 @@ print("雙腳著地")
 pprint.pprint(max)
 print("單腳站立")
 pprint.pprint(min)
+d1=[]
+d2=[]
+d3=[]
+d4=[]
+
 for a in adata:
     if a["time"]==max[0][0]:
         pprint.pprint(a)
+        d1+=datatoang(a)
     elif a["time"]==max[1][0]:
         pprint.pprint(a)
+        d2+=datatoang(a)
     elif a["time"]==min[0][0]:
         pprint.pprint(a)
+        d3+=datatoang(a)
     elif a["time"]==min[1][0]:
         pprint.pprint(a)
+        d4+=datatoang(a)
+print("著地")
+for i in range(21):
+    print(i,d1[i],d2[i],d3[i],d4[i])
+print("單腳")
+for i in range(21):
+    print(i)
 plt.show()
 
 
