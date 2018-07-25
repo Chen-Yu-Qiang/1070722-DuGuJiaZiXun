@@ -17,7 +17,7 @@ def ang(j1,j2,j3):
     l=math.sqrt((a[0]**2+a[1]**2+a[2]**2)*(b[0]**2+b[1]**2+b[2]**2))
     return math.acos(c/l)*(180/math.pi)
 def datatoang(data):
-    """a=[ang(data["FootLeft"],data["AnkleLeft"],data["KneeLeft"]),#1
+    b=[ang(data["FootLeft"],data["AnkleLeft"],data["KneeLeft"]),#1
        ang(data["FootRight"],data["AnkleRight"],data["KneeRight"]),
        ang(data["FootLeft"],data["KneeLeft"],data["HipLeft"]),
        ang(data["FootRight"],data["KneeRight"],data["HipRight"]),
@@ -37,7 +37,7 @@ def datatoang(data):
        ang(data["SpineShoulder"],data["ShoulderRight"],data["ElbowRight"]),
        ang(data["ShoulderLeft"],data["ElbowLeft"],data["WristLeft"]),
        ang(data["ShoulderRight"],data["ElbowRight"],data["WristRight"]),#20
-       ang(data["ShoulderLeft"],data["Head"],data["ShoulderRight"])]"""
+       ang(data["ShoulderLeft"],data["Head"],data["ShoulderRight"])]
     a=[ang(data["FootLeft"],data["AnkleLeft"],data["KneeLeft"]),#1
        ang(data["FootRight"],data["AnkleRight"],data["KneeRight"]),
        ang(data["AnkleLeft"],data["KneeLeft"],data["HipLeft"]),
@@ -59,11 +59,12 @@ def datatoang(data):
        ang(data["ShoulderLeft"],data["ElbowLeft"],data["WristLeft"]),
        ang(data["ShoulderRight"],data["ElbowRight"],data["WristRight"]),#20
        ang(data["ShoulderLeft"],data["Head"],data["ShoulderRight"])]
-    return a
+    return b
 csvname=input("請輸入檔名")
 #csvname = "陳宇強"
 f = open("D:\\kinect\\1070722-讀出骨架\\1070722-DuGuJiaZiXun\\BodyBasics-WPF\\資料區\\" + csvname + ".txt", "r")
 data = f.readlines()
+f.close()
 adata =[{"time":0,
     "SpineBase":[0,0,0],
     "SpineMid":[0,0,0],
@@ -115,7 +116,7 @@ for a in adata:
 plt.plot(p1,p2)
 max=[]
 min=[]
-pole=4#取四個極點
+pole=10#取四個極點
 for i in range(1,len(adata)-1):
     if p2[i]>p2[i+1] and p2[i]>p2[i-1]:
         print(p1[i],"雙腳著地")
@@ -127,7 +128,9 @@ for i in range(1,len(adata)-1):
         pole=pole-1
     if pole==0:
         break
+plt.show();
 
+first=int(input("請輸入欲採計之第一個波谷(0開始)"))
 print("雙腳著地")
 pprint.pprint(max)
 print("單腳站立")
@@ -138,25 +141,26 @@ d3=[]
 d4=[]
 
 for a in adata:
-    if a["time"]==max[0][0]:
+    if a["time"]==max[first][0]:
         pprint.pprint(a)
         d1+=datatoang(a)
-    elif a["time"]==max[1][0]:
+    elif a["time"]==max[first+1][0]:
         pprint.pprint(a)
         d2+=datatoang(a)
-    elif a["time"]==min[0][0]:
+    elif a["time"]==min[first][0]:
         pprint.pprint(a)
-        d3+=datatoang(a)
-    elif a["time"]==min[1][0]:
+        d1+=datatoang(a)
+    elif a["time"]==min[first+1][0]:
         pprint.pprint(a)
-        d4+=datatoang(a)
-print("著地")
-for i in range(21):
-    print(i,d1[i],d2[i],d3[i],d4[i])
-print("單腳")
-for i in range(21):
-    print(i)
-plt.show()
+        d2+=datatoang(a)
 
-
- 
+cla=input("請輸入為哪類(W=1 C=2 Z=3)")
+num=input("請輸入為第幾筆")
+f=open("D:\\kinect\\1070722-讀出骨架\\1070722-DuGuJiaZiXun\\BodyBasics-WPF\\資料區\\角度資料\\" + cla+"-"+num + ".txt", "w")
+for a in d1:
+    f.write(str(a)+"\n")
+f.close()
+f=open("D:\\kinect\\1070722-讀出骨架\\1070722-DuGuJiaZiXun\\BodyBasics-WPF\\資料區\\角度資料\\" + cla+"-"+str(int(num)+1)+ ".txt", "w")
+for a in d2:
+    f.write(str(a)+"\n")
+f.close()
