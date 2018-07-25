@@ -110,10 +110,14 @@ for a in adata:
     #plt.scatter(a["time"],d(p1,p2),c="r")
 p1=[]
 p2=[]
+p3=[]
 for a in adata:
     p2+=[d(a["AnkleRight"],a["AnkleLeft"])]
     p1+=[a["time"]]
+for i in range(1,len(adata)-1):
+    p3+=[(d(adata[i]["AnkleRight"],adata[i]["AnkleLeft"])+d(adata[i+1]["AnkleRight"],adata[i+1]["AnkleLeft"])+d(adata[i-1]["AnkleRight"],adata[i-1]["AnkleLeft"]))/3]
 plt.plot(p1,p2)
+plt.plot(p1[1:-1],p3)
 max=[]
 min=[]
 pole=50#取四個極點

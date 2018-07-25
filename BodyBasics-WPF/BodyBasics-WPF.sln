@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BodyBasics-WPF", "BodyBasic
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonApplication1", "..\PythonApplication1\PythonApplication1.pyproj", "{3A92CD61-8D0C-43CE-A3F4-DC20E4A3F3ED}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonKNN", "..\PythonKNN\PythonKNN.pyproj", "{B5C0DA85-5657-40F0-8B73-CD14DB206909}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,8 @@ Global
 		{269A7B21-FBFE-4E7A-8BBE-C8DE2EC0D833}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3A92CD61-8D0C-43CE-A3F4-DC20E4A3F3ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3A92CD61-8D0C-43CE-A3F4-DC20E4A3F3ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5C0DA85-5657-40F0-8B73-CD14DB206909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5C0DA85-5657-40F0-8B73-CD14DB206909}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
