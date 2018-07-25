@@ -116,14 +116,14 @@ for a in adata:
 plt.plot(p1,p2)
 max=[]
 min=[]
-pole=10#取四個極點
+pole=50#取四個極點
 for i in range(1,len(adata)-1):
     if p2[i]>p2[i+1] and p2[i]>p2[i-1]:
-        print(p1[i],"雙腳著地")
+        print(i,p1[i],"雙腳著地")
         max+=[[p1[i],p2[i]]]
         pole=pole-1
     if p2[i]<p2[i+1] and p2[i]<p2[i-1]:
-        print(p1[i],"單腳站立")
+        print(i,p1[i],"單腳站立")
         min+=[[p1[i],p2[i]]]
         pole=pole-1
     if pole==0:
