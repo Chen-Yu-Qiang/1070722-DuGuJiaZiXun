@@ -24,7 +24,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        private StreamWriter sw = new StreamWriter(@"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\data.txt");
+        StreamWriter sw;
         
         /// <summary>
         /// Radius of drawn hand circles
@@ -553,6 +553,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
         {
             if (!savetxt)
             {
+                sw = new StreamWriter(@"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\data.txt");
                 savetxt = true;
                 Lab1.Content = "狀態：紀錄中";
             }
