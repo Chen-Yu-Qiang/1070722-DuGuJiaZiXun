@@ -1,6 +1,6 @@
 import math
 people=3
-datanum=50
+datanum=80
 def d(a,b):
     c = 0.0
     for i in range(len(a)):
@@ -36,7 +36,7 @@ who="3"
 p1=0
 p2=0
 p3=0
-for i in range(51,121):
+for i in range(81,121):
     a=mytest(who,i)
     if a[0]==1:
         p1=p1+1
