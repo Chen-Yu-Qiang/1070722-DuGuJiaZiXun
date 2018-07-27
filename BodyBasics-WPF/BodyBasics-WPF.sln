@@ -13,6 +13,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonSVM", "..\PythonML\Py
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonMLP", "..\PythonMLP\PythonMLP.pyproj", "{B8BCC5B6-2646-4527-AFEA-E8C9CD0F6F47}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonRename", "..\PythonRename\PythonRename.pyproj", "{3F4F3A92-8923-4F5D-AF35-69CCF98E84E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,8 @@ Global
 		{8DE7992F-8735-4264-BE49-8B76EA9838CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8BCC5B6-2646-4527-AFEA-E8C9CD0F6F47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B8BCC5B6-2646-4527-AFEA-E8C9CD0F6F47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F4F3A92-8923-4F5D-AF35-69CCF98E84E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F4F3A92-8923-4F5D-AF35-69CCF98E84E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

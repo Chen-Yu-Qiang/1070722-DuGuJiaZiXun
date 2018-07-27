@@ -1,6 +1,6 @@
 from sklearn.neural_network import MLPClassifier
 people=3
-datanum=350
+datanum=400
 adata=[[0 for i in range(datanum)] for j in range(people)]
 for i in range(people):
     for j in range(datanum):
@@ -37,7 +37,7 @@ for i in range(len(bdata)):
         testdata+=[bdata[i][j]]
         testtarget+=[i]
 
-clf = MLPClassifier(solver='lbfgs', alpha=1e-5,hidden_layer_sizes=(1000,100), random_state=1)
+clf = MLPClassifier(solver='adam', alpha=1e-5,hidden_layer_sizes=(500), random_state=1)
 clf.fit(data,target)
 output=clf.predict(testdata)p=[0,0,0,0,0]for i in range(len(output)):    if testtarget[i]!=output[i]:        p[testtarget[i]]=p[testtarget[i]]+1
 print(len(output),p)
