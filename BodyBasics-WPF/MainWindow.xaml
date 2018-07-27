@@ -28,13 +28,14 @@
         <StatusBar Grid.Row="2" HorizontalAlignment="Stretch" Name="statusBar" VerticalAlignment="Bottom" Background="White" Foreground="{StaticResource MediumGreyBrush}">
             <StatusBarItem Content="{Binding StatusText}" />
         </StatusBar>
-        <TextBox x:Name="Textbox1" HorizontalAlignment="Left" Height="23" Margin="-616,87,0,0" Grid.Row="1" TextWrapping="Wrap" Text="閒置中" VerticalAlignment="Top" Width="194"/>
-        <Button Content="開始" HorizontalAlignment="Left" Height="40" Margin="-659,150,0,0" Grid.Row="1" VerticalAlignment="Top" Width="237" Click="Button_Click"/>
-        <Button Content="結束，並存檔" HorizontalAlignment="Left" Height="40" Margin="-659,221,0,0" Grid.Row="1" VerticalAlignment="Top" Width="237" Click="Button_Click_1"/>
+        <TextBox x:Name="Textbox1" HorizontalAlignment="Left" Height="23" Margin="-616,87,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="132"/>
+        <Button Content="開始" HorizontalAlignment="Left" Height="71" Margin="-659,150,0,0" Grid.Row="1" VerticalAlignment="Top" Width="378" Click="Button_Click"/>
+        <Button Content="結束，並存檔" HorizontalAlignment="Left" Height="78" Margin="-659,221,0,0" Grid.Row="1" VerticalAlignment="Top" Width="378" Click="Button_Click_1"/>
         <Label x:Name="LabX" Content="Label" HorizontalAlignment="Left" Margin="-653,299,0,0" Grid.Row="1" VerticalAlignment="Top" Width="387" Height="55" FontSize="36"/>
         <Label x:Name="LabY" Content="Label" HorizontalAlignment="Left" Margin="-653,354,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.858,0.72" Width="387" Height="55" FontSize="36"/>
         <Label x:Name="LabZ" Content="Label" HorizontalAlignment="Left" Margin="-653,409,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.597,3.711" Width="387" Height="55" FontSize="36"/>
         <Label Content="檔名" HorizontalAlignment="Left" Margin="-659,87,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-        <Label x:Name="Lab1" Content="狀態：閒置中" HorizontalAlignment="Left" Margin="-653,45,0,0" Grid.Row="1" VerticalAlignment="Top" Width="231"/>
+        <Label x:Name="Lab1" Content="狀態：閒置中" HorizontalAlignment="Left" Margin="-653,45,0,0" Grid.Row="1" VerticalAlignment="Top" Width="231" Background="White"/>
+        <TextBox x:Name="Textbox2" HorizontalAlignment="Left" Height="23" Margin="-484,87,0,0" Grid.Row="1" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

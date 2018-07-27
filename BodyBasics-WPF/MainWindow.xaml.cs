@@ -18,7 +18,6 @@ namespace Microsoft.Samples.Kinect.BodyBasics
     using Microsoft.Kinect;
 
 
-
     /// <summary>
     /// Interaction logic for MainWindow
     /// </summary>
@@ -555,7 +554,7 @@ namespace Microsoft.Samples.Kinect.BodyBasics
             {
                 sw = new StreamWriter(@"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\data.txt");
                 savetxt = true;
-                Lab1.Content = "狀態：紀錄中";
+                Lab1.Content = "                           狀態：紀錄中";
             }
             
 
@@ -568,9 +567,9 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                 savetxt = false;
                 sw.Flush();
                 sw.Close();
-                File.Move(@"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\data.txt", @"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\" + Textbox1.Text + ".txt");
-
-                Lab1.Content = "狀態：閒置中";
+                File.Move(@"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\data.txt", @"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\" + Textbox1.Text+Textbox2.Text + ".txt");
+                Textbox2.Text = Convert.ToString( Convert.ToInt16(Textbox2.Text) + 1);
+                Lab1.Content = "狀態：閒置中"; 
             }
             
         }

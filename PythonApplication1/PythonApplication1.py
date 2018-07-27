@@ -145,7 +145,7 @@ def mymain(who,expnum,nowmax):
                 maxmin=1
     useable=[]
     for i in range(1,allpole):
-        if abs(pole[i][1]-pole[i-1][1])>0.3 :
+        if abs(pole[i][1]-pole[i-1][1])>0.25 :
             useable+=[i]
     useable2=[]
     for i in range(0,len(useable)-1):
@@ -171,8 +171,12 @@ def mymain(who,expnum,nowmax):
         cla="1"
     elif who=="C":
         cla="2"
-    else:
+    elif who=="Z":
         cla="3"
+    elif who=="A":
+        cla="4"
+    elif who=="X":
+        cla="5"
     num=nowmax
     d=[]
     for i in range(0,len(useset),2):
