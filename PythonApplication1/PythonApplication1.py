@@ -115,8 +115,8 @@ def mymain(who,expnum,nowmax):
     for a in adata:
         p2+=[d(a["AnkleRight"],a["AnkleLeft"])]
         p1+=[a["time"]]
-    for i in range(2,len(adata)-2):
-        p3+=[(d(adata[i]["AnkleRight"],adata[i]["AnkleLeft"])+d(adata[i+1]["AnkleRight"],adata[i+1]["AnkleLeft"])+d(adata[i-1]["AnkleRight"],adata[i-1]["AnkleLeft"])+d(adata[i+2]["AnkleRight"],adata[i+2]["AnkleLeft"])+d(adata[i-2]["AnkleRight"],adata[i-2]["AnkleLeft"]))/5]
+    #for i in range(2,len(adata)-2):
+    #    p3+=[(d(adata[i]["AnkleRight"],adata[i]["AnkleLeft"])+d(adata[i+1]["AnkleRight"],adata[i+1]["AnkleLeft"])+d(adata[i-1]["AnkleRight"],adata[i-1]["AnkleLeft"])+d(adata[i+2]["AnkleRight"],adata[i+2]["AnkleLeft"])+d(adata[i-2]["AnkleRight"],adata[i-2]["AnkleLeft"]))/5]
     #plt.plot(p1,p2)
     #plt.plot(p1[2:-2],p3)
     max=[]
@@ -160,9 +160,9 @@ def mymain(who,expnum,nowmax):
 
     ii=0
     useset=[]
-    for a in adata:
-        while  ii<len(useable2) and a["time"]==pole[useable2[ii]][0] :
-            useset+=[datatoang(a)]
+    for a in range(len(adata)):
+        while  ii<len(useable2) and (adata[a]["time"]==pole[useable2[ii]][0] or adata[a-1]["time"]==pole[useable2[ii]][0] or adata[a+1]["time"]==pole[useable2[ii]][0]):
+            useset+=[datatoang(adata[a])]
             #print("add",useable2[ii],pole[useable2[ii]][0])
             ii=ii+1
     print(len(useset))
@@ -179,15 +179,15 @@ def mymain(who,expnum,nowmax):
         cla="5"
     num=nowmax
     d=[]
-    for i in range(0,len(useset),2):
+    for i in range(0,len(useset),6):
         if maxmin==1:
-            dl=useset[i]
-            dh=useset[i+1]
+            dl=useset[i]+useset[i+1]+useset[i+2]
+            dh=useset[i+3]+useset[i+4]+useset[i+5]
             d=dl+dh
 
         elif maxmin==0:
-            dh=useset[i]
-            dl=useset[i+1]
+            dh=useset[i]+useset[i+1]+useset[i+2]
+            dl=useset[i+3]+useset[i+4]+useset[i+5]
             d=dl+dh
         f=open("D:\\kinect\\1070722-讀出骨架\\1070722-DuGuJiaZiXun\\BodyBasics-WPF\\資料區\\角度資料\\" + cla+"-"+str(int(num)+i//2)+ ".txt", "w")
         for a in d:

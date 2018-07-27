@@ -110,7 +110,7 @@ def mymain(who,expnum,nowmax):
         p1=a["AnkleRight"]
         p2=a["AnkleLeft"]
         #print(a["time"],p1,p2,d(p1,p2))
-        #plt.scatter(a["time"],d(p1,p2),c="r")
+        plt.scatter(a["time"],d(p1,p2),c="r")
     p1=[]
     p2=[]
     p3=[]
