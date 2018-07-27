@@ -161,8 +161,8 @@ def mymain(who,expnum,nowmax):
     ii=0
     useset=[]
     for a in range(len(adata)):
-        while  ii<len(useable2) and (adata[a]["time"]==pole[useable2[ii]][0] or adata[a-1]["time"]==pole[useable2[ii]][0] or adata[a+1]["time"]==pole[useable2[ii]][0]):
-            useset+=[datatoang(adata[a])]
+        while  ii<len(useable2) and adata[a]["time"]==pole[useable2[ii]][0] :
+            useset+=[datatoang(adata[a-1]),datatoang(adata[a]),datatoang(adata[a+1])]
             #print("add",useable2[ii],pole[useable2[ii]][0])
             ii=ii+1
     print(len(useset))
@@ -189,11 +189,11 @@ def mymain(who,expnum,nowmax):
             dh=useset[i]+useset[i+1]+useset[i+2]
             dl=useset[i+3]+useset[i+4]+useset[i+5]
             d=dl+dh
-        f=open("D:\\kinect\\1070722-讀出骨架\\1070722-DuGuJiaZiXun\\BodyBasics-WPF\\資料區\\角度資料\\" + cla+"-"+str(int(num)+i//2)+ ".txt", "w")
+        f=open("D:\\kinect\\1070722-讀出骨架\\1070722-DuGuJiaZiXun\\BodyBasics-WPF\\資料區\\角度資料\\" + cla+"-"+str(int(num)+(i//6))+ ".txt", "w")
         for a in d:
             f.write(str(a)+"\n")
         f.close()
-    return len(useset)/2
+    return len(useset)/6
 c=input("誰?")
 a=int(input("輸入起點"))
 b=int(input("輸入終點"))

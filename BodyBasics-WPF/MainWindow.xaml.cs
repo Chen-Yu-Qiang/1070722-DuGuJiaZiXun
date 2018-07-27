@@ -555,8 +555,8 @@ namespace Microsoft.Samples.Kinect.BodyBasics
                 sw = new StreamWriter(@"D:\kinect\1070722-讀出骨架\1070722-DuGuJiaZiXun\BodyBasics-WPF\資料區\data.txt");
                 savetxt = true;
                 Lab1.Content = "                           狀態：紀錄中";
-            }
             
+            }
 
         }
 

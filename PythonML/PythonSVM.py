@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 from sklearn import datasets, svm, metrics
 import pprint
 
-people=5
-datanum=167
+people=3
+datanum=400
 n_samples=people*datanum
 adata=[[0 for i in range(datanum)] for j in range(people)]
 for i in range(people):
@@ -22,9 +22,9 @@ for i in range(people):
     for j in range(datanum):
         data+=[adata[i][j]]
         target+=[i]
-bdata=[[0 for i in range(267-datanum)] for j in range(3)]
+bdata=[[0 for i in range(466-datanum)] for j in range(3)]
 for i in range(3):
-    for j in range(datanum,267):
+    for j in range(datanum,466):
         f=open("D:\\kinect\\1070722-讀出骨架\\1070722-DuGuJiaZiXun\\BodyBasics-WPF\\資料區\\角度資料\\" + str(i+1)+"-"+str(j+1) + ".txt","r")
         bdata[i][j-datanum]=f.readlines()
         f.close()

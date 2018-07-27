@@ -1,6 +1,6 @@
 import math
-people=5
-datanum=160
+people=3
+datanum=400
 def d(a,b):
     c = 0.0
     for i in range(len(a)):
@@ -34,7 +34,7 @@ def mytest(who,num):
     return [whomin+1,nowmin]
 for who in range(1,4):
     p=[0 for i in range(people+1)]
-    for i in range(datanum+1,267):
+    for i in range(datanum+1,466):
         a=mytest(str(who),i)
         p[a[0]]=p[a[0]]+1
     print(who,p)

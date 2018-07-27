@@ -1,6 +1,6 @@
 from sklearn.neural_network import MLPClassifier
-people=5
-datanum=130
+people=3
+datanum=350
 adata=[[0 for i in range(datanum)] for j in range(people)]
 for i in range(people):
     for j in range(datanum):
@@ -19,9 +19,9 @@ for i in range(people):
         target+=[i]
 
 
-bdata=[[0 for i in range(167-datanum)] for j in range(3)]
+bdata=[[0 for i in range(466-datanum)] for j in range(3)]
 for i in range(3):
-    for j in range(datanum,167):
+    for j in range(datanum,466):
         f=open("D:\\kinect\\1070722-讀出骨架\\1070722-DuGuJiaZiXun\\BodyBasics-WPF\\資料區\\角度資料\\" + str(i+1)+"-"+str(j+1) + ".txt","r")
         bdata[i][j-datanum]=f.readlines()
         f.close()
